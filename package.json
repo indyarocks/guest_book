@@ -2,9 +2,10 @@
   "name": "guest_book",
   "version": "1.0.0",
   "description": "Guest Book",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
     "ExpressJs"
   ],
   "author": "Chandan Jhunjhunwal",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
