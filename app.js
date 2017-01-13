@@ -3,6 +3,15 @@ var http = require("http");
 
 var app = express();
 
+// New middleware
+app.use(function(req, res, next){
+	console.log('My fun middleware: start!')
+	console.log(req);
+	console.log(res);
+	console.log('My fun middleware: end!')
+	next();
+});
+
 app.use(function(req, res){
 	console.log('Here comes request at: ' + req.url);
 	res.status(200).send('Here comes request at: ' + req.url);
