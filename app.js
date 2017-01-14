@@ -24,6 +24,11 @@ app.get('/help', function(req, res){
 	res.status(200).send('Help page')
 });
 
+app.get('/hello/:who', function(req, res){
+	console.log("HTTP Method " + req.method + " at " + req.path);
+	res.status(200).send("Hello " + req.params.who + "!")
+});
+
 app.use(function(req, res){
 	console.log("HTTP Method " + req.method + " at " + req.path);
 	res.statusCode = 404;
