@@ -9,11 +9,25 @@ app.use(logger("short"));
 var publicPath = path.resolve(__dirname, "public");
 app.use(express.static(publicPath));
 
+app.get('/', function(req, res){
+	console.log("HTTP Method " + req.method + " at " + req.path);
+	res.status(200).send('Homepage')
+});
+
+app.get('/about', function(req, res){
+	console.log("HTTP Method " + req.method + " at " + req.path);
+	res.status(200).send('About page')
+});
+
+app.get('/help', function(req, res){
+	console.log("HTTP Method " + req.method + " at " + req.path);
+	res.status(200).send('Help page')
+});
+
 app.use(function(req, res){
-	console.log('Here comes request at: ' + req.url);
-	res.writeHead(200, { "Content-Type": "text/plain"})
-	res.end("Looks like no file in public directory!");
-	// res.status(200).send('Here comes request at: ' + req.url);
-})
+	console.log("HTTP Method " + req.method + " at " + req.path);
+	res.statusCode = 404;
+	res.send('Not Found!');
+});
 
 http.createServer(app).listen(3000)
